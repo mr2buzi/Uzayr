@@ -129,3 +129,63 @@
 .floatAround {
     animation: floatAround 10s linear infinite;
 }
+
+/* Modal container */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.5); /* Black w/ opacity */
+    
+    a,h2, p{
+        color: black;
+        text-decoration: none;
+
+    }
+}
+
+
+/* Modal content */
+.modalContent {
+    background-color: var(--modal);;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    animation: fadeInModal 0.5s;
+    text-decoration: none;
+}
+
+/* Close button */
+.modalClose {
+    color: var(--form-text-color);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.modalClose:hover,
+.modalClose:focus {
+    color: red;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Modal animations */
+@keyframes fadeInModal {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
