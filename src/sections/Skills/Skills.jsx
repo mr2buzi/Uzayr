@@ -45,6 +45,7 @@ function Skills() {
                 <div className={styles.skillList}>
                     <SkillList src={checkMarkIcon} skill="Python" />
                     <SkillList src={checkMarkIcon} skill="C Language" />
+                    <SkillList src={checkMarkIcon} skill="Embedded C" />
                     <SkillList src={checkMarkIcon} skill="Git" />
                     <SkillList src={checkMarkIcon} skill="Batch" />
                     <SkillList src={checkMarkIcon} skill="LDRA" />
@@ -62,6 +63,9 @@ function Skills() {
                     <SkillList src={checkMarkIcon} skill="Ubuntu" />
                     <SkillList src={checkMarkIcon} skill="Parrot OS" />
                     <SkillList src={checkMarkIcon} skill="Tails" />
+                    <SkillList src={checkMarkIcon} skill="Zephyr" />
+                    <SkillList src={checkMarkIcon} skill="Windows" />
+
                 </div>
             )}
             <hr />
@@ -86,6 +90,7 @@ function Skills() {
                     <SkillList src={checkMarkIcon} skill="STM32" />
                     <SkillList src={checkMarkIcon} skill="ESP 8266 " />
                     <SkillList src={checkMarkIcon} skill="Raspberry Pi 5 " />
+                    <SkillList src={checkMarkIcon} skill="NRF7002dk" />
                 </div>
             )}
         </section>

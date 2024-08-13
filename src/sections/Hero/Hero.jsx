@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './HeroStyles.module.css';
 import heroImg from '../../assets/123.png';
 import sun from '../../assets/sun.svg';
@@ -9,8 +9,8 @@ import githubLight from '../../assets/github-light.svg';
 import linkedinDark from '../../assets/linkedin-dark.svg';
 import twitterDark from '../../assets/twitter-dark.svg';
 import githubDark from '../../assets/github-dark.svg';
-import CV from '../../assets/cv.pdf';
 import { useTheme } from '../../common/ThemeContext';
+import $ from 'jquery';
 
 function Hero() {
     const { theme, toggleTheme } = useTheme();
@@ -18,6 +18,17 @@ function Hero() {
     const twitterIcon = theme === 'light' ? twitterLight : twitterDark;
     const githubIcon = theme === 'light' ? githubLight : githubDark;
     const linkedinIcon = theme === 'light' ? linkedinLight : linkedinDark;
+
+    useEffect(() => {
+        $('#cv-button').on('click', function (e) {
+            e.preventDefault();
+            $('#cv-modal').fadeIn();
+        });
+
+        $('#cv-modal-close').on('click', function () {
+            $('#cv-modal').fadeOut();
+        });
+    }, []);
 
     return (
         <section id="hero" className={styles.container}>
@@ -44,9 +55,18 @@ function Hero() {
                     </a>
                 </span>
                 <p className={styles.description}>Passionate software developer dedicated to creating innovative solutions, solving complex problems, and continuously learning to drive technological excellence.</p>
-                <a href={CV} download>
+                <a href="#" id="cv-button">
                     <button className="hover">CV</button>
                 </a>
+            </div>
+
+            {/* Modal */}
+            <div id="cv-modal" className={styles.modal}>
+                <div className={styles.modalContent}>
+                    <span id="cv-modal-close" className={styles.modalClose}>&times;</span>
+                    <h2>CV Available Upon Request</h2>
+                    <p>Please email <a href="mailto:uzayrwork@gmail.com">uzayrwork@gmail.com</a> to request a copy of my CV. Thanks!</p>
+                </div>
             </div>
         </section>
     );

@@ -1,8 +1,10 @@
 import React from 'react';
 import styles from './ProjectStyles.module.css';
-import viberr from '../../assets/viberr.png';
+import website from '../../assets/responsive-design.png';
 import ProjectCard from '../../common/ProjectCard';
-import freshBurger from '../../assets/fresh-burger.png'
+import cpu from '../../assets/circuit-board.png';
+import sw333p from '../../assets/account.png';
+import game from '../../assets/game-development.png';
 
 function Projects() {
   return (
@@ -10,26 +12,26 @@ function Projects() {
         <h1 className='sectionTitle'>Projects</h1>
         <div className={styles.projectsContainer}>
         <ProjectCard
-        src={viberr}
-        link='www.google.com' 
+        src={sw333p}
+        link='https://media.licdn.com/dms/image/C4E22AQFjHaxY8igAVQ/feedshare-shrink_800/0/1658249612969?e=1724284800&v=beta&t=Xc9JUf7v1oOTpcb2TxiU54uNONuwC-wAd5vZaplvu1U' 
         h3='SW£££P£R' 
         p='Pen-Testing Tool'/>
         
         <ProjectCard
-        src={freshBurger}
-        link='www.google.com' 
+        src={website}
+        link='https://ibb.co/tC5VsQ8' 
         h3='Website' 
         p='Womens Charity Website'/>
         <ProjectCard
-        src={freshBurger}
+        src={cpu}
         link='www.google.com' 
-        h3='Website' 
-        p='Womens Charity Website'/>
+        h3='Temperature Sensor' 
+        p='NRF7002dk board utilisation'/>
         <ProjectCard
-        src={freshBurger}
-        link='www.google.com' 
-        h3='Website' 
-        p='Womens Charity Website'/>
+        src={game}
+        link='https://ibb.co/8752j8G' 
+        h3='Game' 
+        p='Python Game Utiliting AI'/>
         </div> 
     </section>
 

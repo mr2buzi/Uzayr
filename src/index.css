@@ -6,6 +6,7 @@
     --text-color: #222;
     --form-text-color: #555;
     --footer-text-color: #888;
+    --modal: #fff
 
 }
 
@@ -17,6 +18,7 @@
     --text-color: #fff;
     --form-text-color: #555;
     --footer-text-color: #888;
+    --modal: #fff;
 
 }
 
