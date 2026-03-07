@@ -1,0 +1,84 @@
+UZAYR QURESHI
+SOFTWARE ENGINEERING STUDENT (AI & SYSTEMS)
+
+Contact
+[redacted-phone]
+[redacted-email]
+https://www.linkedin.com/in/uzayr-qureshi-b2a8ba245/
+https://uzayr.netlify.app/
+https://www.lureon.dev
+
+Profile
+Second-year Computer Science student with hands-on experience building and maintaining production-style software systems across AI, embedded, backend, and full stack environments. Strong interest in performance-aware software, data pipelines, backend platforms, and AI-driven systems. Seeking a year-in-industry placement where I can contribute to technically demanding projects and grow as a systems-focused engineer.
+
+Technical Skills
+Languages: Python, Rust, C, JavaScript, TypeScript, SQL, Batch
+Systems & Backend: FastAPI, Axum, SQLx, SQLAlchemy, PostgreSQL, SQLite, Git, Docker Compose
+AI / Data: TensorFlow, YOLOv8, scikit-learn, Google Colab, analytics pipelines, Monte Carlo simulation
+Frontend & Product: React, Vite, Electron, SASS, Bootstrap, HTML5, CSS, XAMPP
+Embedded & Low-level: ESP32-CAM, Arduino, MPLAB X IDE, Zephyr OS, Linux
+Workflow: Agile, Scrum, Kanban, Jira, unit testing, static analysis
+
+Experience
+Lureon | Founder & Software Developer | Part-time | 2024 - Present
+- Founded and operate a small software development studio
+- Lead system design, development, deployment, and public presentation of software products
+- Use the studio as a vehicle for shipping portfolio-grade technical work
+
+IoT Tech Solutions | Software Developer | Part-time | 2023 - 2024
+- Migrated legacy Python 2 systems to Python 3
+- Applied Scrum and Kanban workflows using Jira
+- Performed unit testing and static analysis with LDRA
+- Researched AES-128 encryption for secure data handling
+- Benchmarked YOLOv8 against GOTURN for AI tracking workflows
+- Reduced internal file-management time by roughly 60 percent through automation
+
+Student Cribs | Student Brands Manager | Part-time | 2024 - Present
+- Conduct guided property tours for prospective tenants
+- Gather student feedback and feed insights back into marketing
+- Support outreach and brand visibility in the Cardiff student community
+
+World of Women | Full Stack Web Developer | Part-time | 2023
+- Developed authentication and database-backed features using PHP and SQL
+- Built responsive interfaces using SASS, HTML5, CSS, and Bootstrap
+- Supported secure sign-up flows and mobile-first usability
+
+Education
+Cardiff University | BSc Computer Science (Year in Industry) | 2024 - Present
+Current grade: First
+Relevant modules: Database Systems, Data Processing & Visualisation, Scientific Computing, Object Orientation, Algorithms and Data Structures, Computational Mathematics
+
+St Peters RC Sixth Form | 2024
+A Levels: Criminology A*, Computer Science C, Psychology C
+
+Ninestiles, an Academy | 2022
+10 GCSEs including Maths, English, and Statistics at grade 6 and above
+
+Flagship Projects
+Relay-Flow
+- Rust workflow execution engine for AI and API automations
+- Focused on retries with backoff, idempotency, durable run history, dead-letter recovery, and conditional branching
+
+SlateDB
+- Rust relational database prototype with an Electron + React workbench
+- Includes SQL parsing, planner, page-based storage, B+ tree indexing, transactions, and WAL-backed crash recovery
+
+FraudShield
+- Fraud operations platform combining ML scoring, analyst review flows, metrics, and explainable alerts
+
+DEADLINE
+- Public product-oriented accountability app with landing, pricing, onboarding, and example-flow simulation
+
+Vehicle Dynamics Simulation
+- Python engineering project for straight-line vehicle acceleration simulation with GUI, CLI, tests, and PDF report generation
+
+Additional Projects / Courses
+- Built a smart home system using Python, Arduino, ESP32-CAM, motion and sound sensors
+- Developed a cybersecurity tool integrating Batch and Python for security workflow automation
+- Built a Selenium and Python automation prototype to study interaction patterns
+- Used Monte Carlo simulation workflows for options pricing exploration
+- Completed a cybersecurity course funded by West Midlands Police
+- Completed leadership, first aid, and event coordination training through RAF Cadets
+
+References
+Available upon request
