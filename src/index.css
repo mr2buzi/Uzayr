@@ -874,7 +874,11 @@ a:focus-visible {
   border-color: rgba(255, 255, 255, 0.12);
 }
 
-.case-study__body,
+.case-study__body {
+  min-height: 280px;
+  background: transparent;
+}
+
 .resume-panel {
   min-height: 280px;
   background:
