@@ -24,6 +24,7 @@ import type {
 } from "./types";
 
 const HeroScene = lazy(() => import("./components/HeroScene"));
+const ImmersiveBackground = lazy(() => import("./components/ImmersiveBackground"));
 
 const projectTabs: Array<{ value: ProjectTab; label: string }> = [
   { value: "overview", label: "Overview" },
@@ -348,6 +349,9 @@ function App() {
 
   return (
     <div className="page-shell">
+      <Suspense fallback={null}>
+        <ImmersiveBackground />
+      </Suspense>
       <div className="ambient ambient-left" />
       <div className="ambient ambient-right" />
       <header className="site-header">
@@ -394,21 +398,33 @@ function App() {
             </div>
 
             <div className="hero__highlights" aria-label="Quick portfolio routes">
-              <article className="hero-highlight">
+              <button
+                type="button"
+                className="hero-highlight"
+                onClick={() => setProject("relay-flow")}
+              >
                 <span className="eyebrow">Start here</span>
                 <strong>Relay-Flow</strong>
                 <p>Reliability tooling, workflows, retries, dead letters, replay.</p>
-              </article>
-              <article className="hero-highlight">
+              </button>
+              <button
+                type="button"
+                className="hero-highlight"
+                onClick={() => setProject("slatedb")}
+              >
                 <span className="eyebrow">Systems depth</span>
                 <strong>SlateDB</strong>
                 <p>Storage engine internals, parser, indexing, transactions, WAL.</p>
-              </article>
-              <article className="hero-highlight">
+              </button>
+              <button
+                type="button"
+                className="hero-highlight"
+                onClick={() => setProject("fraudshield")}
+              >
                 <span className="eyebrow">AI + product</span>
                 <strong>FraudShield</strong>
                 <p>ML-backed scoring, analyst review, API design, ops metrics.</p>
-              </article>
+              </button>
             </div>
 
             <div className="hero__actions">
@@ -497,7 +513,16 @@ function App() {
                 />
               ))}
             </div>
-            <CaseStudyPanel project={selectedProject} mode={mode} />
+            <div className="case-study-stage">
+              <div className="case-study-stage__top">
+                <span className="eyebrow">Focused view</span>
+                <p>
+                  I keep one case study open at a time here so the details stay readable and fast
+                  to scan.
+                </p>
+              </div>
+              <CaseStudyPanel project={selectedProject} mode={mode} />
+            </div>
           </div>
         </section>
 
