@@ -17,16 +17,20 @@ export default function HeroScene({ variant = "hero" }: HeroSceneProps) {
     const prefersReducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
     ).matches;
+    const isMobile = window.matchMedia("(max-width: 760px)").matches;
+    const isCoarsePointer = window.matchMedia("(pointer: coarse)").matches;
+    const optimizeForMobile = isMobile || isCoarsePointer;
+    const enablePointerTracking = !prefersReducedMotion && !isCoarsePointer;
 
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
-    camera.position.set(0, 0, variant === "hero" ? 8 : 7);
+    camera.position.set(0, 0, variant === "hero" ? (optimizeForMobile ? 8.4 : 8) : 7);
 
     const renderer = new THREE.WebGLRenderer({
       antialias: true,
       alpha: true,
     });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, optimizeForMobile ? 1.3 : 2));
     renderer.setClearColor(0x000000, 0);
     mount.appendChild(renderer.domElement);
 
@@ -35,7 +39,7 @@ export default function HeroScene({ variant = "hero" }: HeroSceneProps) {
 
     const coreGeometry = new THREE.IcosahedronGeometry(
       variant === "hero" ? 1.8 : 1.15,
-      variant === "hero" ? 1 : 0,
+      variant === "hero" ? (optimizeForMobile ? 0 : 1) : 0,
     );
     const coreMaterial = new THREE.MeshPhysicalMaterial({
       color: 0xff8a52,
@@ -51,7 +55,7 @@ export default function HeroScene({ variant = "hero" }: HeroSceneProps) {
 
     const shellGeometry = new THREE.IcosahedronGeometry(
       variant === "hero" ? 1.28 : 0.82,
-      variant === "hero" ? 3 : 2,
+      variant === "hero" ? (optimizeForMobile ? 2 : 3) : optimizeForMobile ? 1 : 2,
     );
     const shellMaterial = new THREE.MeshPhysicalMaterial({
       color: 0xffd8b6,
@@ -67,8 +71,8 @@ export default function HeroScene({ variant = "hero" }: HeroSceneProps) {
     const haloGeometry = new THREE.TorusGeometry(
       variant === "hero" ? 2.45 : 1.7,
       variant === "hero" ? 0.03 : 0.025,
-      12,
-      180,
+      optimizeForMobile ? 8 : 12,
+      optimizeForMobile ? 120 : 180,
     );
     const haloMaterial = new THREE.MeshBasicMaterial({
       color: 0xffd2b0,
@@ -82,8 +86,8 @@ export default function HeroScene({ variant = "hero" }: HeroSceneProps) {
     const secondaryHaloGeometry = new THREE.TorusGeometry(
       variant === "hero" ? 1.95 : 1.25,
       0.02,
-      10,
-      120,
+      optimizeForMobile ? 8 : 10,
+      optimizeForMobile ? 84 : 120,
     );
     const secondaryHaloMaterial = new THREE.MeshBasicMaterial({
       color: 0xff7a49,
@@ -110,7 +114,7 @@ export default function HeroScene({ variant = "hero" }: HeroSceneProps) {
       true,
     );
     const orbitGeometry = new THREE.BufferGeometry().setFromPoints(
-      orbitCurve.getPoints(180),
+      orbitCurve.getPoints(optimizeForMobile ? 96 : 180),
     );
     const orbitMaterial = new THREE.LineBasicMaterial({
       color: 0xffc8a6,
@@ -121,7 +125,9 @@ export default function HeroScene({ variant = "hero" }: HeroSceneProps) {
     scene.add(orbit);
 
     const pointsGeometry = new THREE.BufferGeometry();
-    const pointCount = variant === "hero" ? 220 : 120;
+    const pointCount = variant === "hero"
+      ? optimizeForMobile ? 120 : 220
+      : optimizeForMobile ? 70 : 120;
     const positions = new Float32Array(pointCount * 3);
 
     for (let index = 0; index < pointCount; index += 1) {
@@ -183,7 +189,7 @@ export default function HeroScene({ variant = "hero" }: HeroSceneProps) {
       pointer.y = ((event.clientY - rect.top) / rect.height - 0.5) * 2;
     };
 
-    if (!prefersReducedMotion) {
+    if (enablePointerTracking) {
       mount.addEventListener("pointermove", handlePointerMove);
     }
 
@@ -193,8 +199,8 @@ export default function HeroScene({ variant = "hero" }: HeroSceneProps) {
       if (!prefersReducedMotion) {
         group.rotation.y = elapsed * (variant === "hero" ? 0.28 : 0.34);
         group.rotation.x = Math.sin(elapsed * 0.4) * (variant === "hero" ? 0.18 : 0.12);
-        group.position.x = pointer.x * (variant === "hero" ? 0.28 : 0.18);
-        group.position.y = pointer.y * -0.18;
+        group.position.x = enablePointerTracking ? pointer.x * (variant === "hero" ? 0.28 : 0.18) : 0;
+        group.position.y = enablePointerTracking ? pointer.y * -0.18 : 0;
         shellMesh.rotation.y = -elapsed * 0.18;
         shellMesh.rotation.z = elapsed * 0.12;
         halo.rotation.z = elapsed * 0.22;

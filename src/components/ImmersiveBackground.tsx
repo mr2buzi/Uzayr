@@ -13,6 +13,10 @@ export default function ImmersiveBackground() {
     const prefersReducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
     ).matches;
+    const isMobile = window.matchMedia("(max-width: 760px)").matches;
+    const isCoarsePointer = window.matchMedia("(pointer: coarse)").matches;
+    const optimizeForMobile = isMobile || isCoarsePointer;
+    const enablePointerTracking = !prefersReducedMotion && !isCoarsePointer;
 
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(42, 1, 0.1, 100);
@@ -22,7 +26,7 @@ export default function ImmersiveBackground() {
       antialias: true,
       alpha: true,
     });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.6));
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, optimizeForMobile ? 1.05 : 1.6));
     renderer.setClearColor(0x000000, 0);
     mount.appendChild(renderer.domElement);
 
@@ -38,7 +42,7 @@ export default function ImmersiveBackground() {
       depthWrite: false,
     });
 
-    const glows = Array.from({ length: 3 }, (_, index) => {
+    const glows = Array.from({ length: optimizeForMobile ? 2 : 3 }, (_, index) => {
       const mesh = new THREE.Mesh(glowGeometry, glowMaterial.clone());
       mesh.position.set(
         index === 0 ? -5 : index === 1 ? 5.5 : 0.4,
@@ -57,7 +61,7 @@ export default function ImmersiveBackground() {
       blending: THREE.AdditiveBlending,
     });
 
-    const rings = Array.from({ length: 4 }, (_, index) => {
+    const rings = Array.from({ length: optimizeForMobile ? 2 : 4 }, (_, index) => {
       const curve = new THREE.EllipseCurve(
         0,
         0,
@@ -68,7 +72,7 @@ export default function ImmersiveBackground() {
         false,
         0,
       );
-      const points = curve.getPoints(120).map((point) =>
+      const points = curve.getPoints(optimizeForMobile ? 72 : 120).map((point) =>
         new THREE.Vector3(point.x, point.y, 0),
       );
       const geometry = new THREE.BufferGeometry().setFromPoints(points);
@@ -84,7 +88,7 @@ export default function ImmersiveBackground() {
     });
 
     const pointsGeometry = new THREE.BufferGeometry();
-    const pointCount = 900;
+    const pointCount = optimizeForMobile ? 320 : 900;
     const positions = new Float32Array(pointCount * 3);
     const colors = new Float32Array(pointCount * 3);
     const colorA = new THREE.Color(0xffe2ca);
@@ -130,7 +134,7 @@ export default function ImmersiveBackground() {
       blending: THREE.AdditiveBlending,
     });
 
-    const strands = Array.from({ length: 3 }, (_, index) => {
+    const strands = Array.from({ length: optimizeForMobile ? 2 : 3 }, (_, index) => {
       const curve = new THREE.CatmullRomCurve3(
         Array.from({ length: 7 }, (_, pointIndex) => {
           const t = pointIndex / 6;
@@ -142,7 +146,7 @@ export default function ImmersiveBackground() {
         }),
       );
       const geometry = new THREE.BufferGeometry().setFromPoints(
-        curve.getPoints(180),
+        curve.getPoints(optimizeForMobile ? 96 : 180),
       );
       const line = new THREE.Line(geometry, strandMaterial.clone());
       line.position.y = index * 3 - 4;
@@ -173,7 +177,7 @@ export default function ImmersiveBackground() {
       pointer.y = (event.clientY / window.innerHeight - 0.5) * 2;
     };
 
-    if (!prefersReducedMotion) {
+    if (enablePointerTracking) {
       window.addEventListener("pointermove", handlePointerMove);
     }
 
@@ -184,10 +188,10 @@ export default function ImmersiveBackground() {
       const elapsed = clock.getElapsedTime();
 
       if (!prefersReducedMotion) {
-        root.rotation.y = elapsed * 0.03 + pointer.x * 0.08;
-        root.rotation.x = pointer.y * -0.04;
-        root.position.x = pointer.x * 0.45;
-        root.position.y = pointer.y * -0.35;
+        root.rotation.y = elapsed * 0.03 + (enablePointerTracking ? pointer.x * 0.08 : 0);
+        root.rotation.x = enablePointerTracking ? pointer.y * -0.04 : Math.sin(elapsed * 0.08) * 0.02;
+        root.position.x = enablePointerTracking ? pointer.x * 0.45 : 0;
+        root.position.y = enablePointerTracking ? pointer.y * -0.35 : 0;
         stars.rotation.y = elapsed * 0.012;
         stars.rotation.x = Math.sin(elapsed * 0.1) * 0.06;
         glows.forEach((glow, index) => {
