@@ -142,6 +142,10 @@ a:focus-visible {
   display: block;
 }
 
+.page-shell--compact .immersive-background {
+  opacity: 0.5;
+}
+
 .site-header {
   position: sticky;
   top: 0;
@@ -1612,6 +1616,61 @@ a:focus-visible {
 
   .projects-section--mobile .filter-stack {
     margin-bottom: 0.85rem;
+  }
+
+  .filter-stack--mobile {
+    gap: 0.65rem;
+  }
+
+  .mobile-filter-panel {
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    background: rgba(255, 250, 244, 0.82);
+    padding: 0.15rem 0.85rem;
+  }
+
+  .mobile-filter-panel summary {
+    cursor: pointer;
+    list-style: none;
+    padding: 0.8rem 0;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.74rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-soft);
+  }
+
+  .mobile-filter-panel summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .mobile-filter-panel[open] {
+    padding-bottom: 0.8rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .page-shell--compact .main-shell--compact > .section:first-child {
+    padding-top: 0.7rem;
+  }
+
+  .projects-section--compact .section-heading {
+    align-items: start;
+    gap: 0.8rem;
+    margin-bottom: 0.9rem;
+  }
+
+  .projects-section--compact .section-heading h2 {
+    max-width: none;
+  }
+
+  .projects-section--compact .section-heading p {
+    margin: 0;
+    max-width: 42rem;
+  }
+
+  .selection-pill--mobile {
+    min-width: 0;
   }
 }
 

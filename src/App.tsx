@@ -516,6 +516,7 @@ function ProjectsSection({
   selectedProject,
   selectedProjectPosition,
   setProject,
+  isCompactLayout,
   isMobileLayout,
 }: {
   mode: AudienceMode;
@@ -526,28 +527,33 @@ function ProjectsSection({
   selectedProject: Project;
   selectedProjectPosition: number;
   setProject: (project: string | null) => void;
+  isCompactLayout: boolean;
   isMobileLayout: boolean;
 }) {
   return (
     <section
-      className={`section projects-section ${isMobileLayout ? "projects-section--mobile" : ""}`}
+      className={`section projects-section ${isCompactLayout ? "projects-section--compact" : ""} ${isMobileLayout ? "projects-section--mobile" : ""}`}
       id="projects"
     >
-      {isMobileLayout ? (
-        <div className="section-heading section-heading--mobile">
+      {isCompactLayout ? (
+        <div className="section-heading section-heading--compact-mobile">
           <div>
             <p className="eyebrow">Featured case studies</p>
             <h2>Projects</h2>
-            <p>Start here. Pick a project, then inspect the active case study below.</p>
+            {!isMobileLayout ? (
+              <p>Pick a project, then inspect the active case study below.</p>
+            ) : null}
           </div>
-          <div className="selection-pill selection-pill--mobile">
-            <div>
-              <span className="eyebrow">Current selection</span>
-              <strong>
-                {selectedProjectPosition + 1}. {selectedProject.title}
-              </strong>
+          {!isMobileLayout ? (
+            <div className="selection-pill selection-pill--mobile">
+              <div>
+                <span className="eyebrow">Current selection</span>
+                <strong>
+                  {selectedProjectPosition + 1}. {selectedProject.title}
+                </strong>
+              </div>
             </div>
-          </div>
+          ) : null}
         </div>
       ) : (
         <div className="section-heading section-heading--compact">
@@ -582,10 +588,20 @@ function ProjectsSection({
         </div>
       )}
 
-      <div className="filter-stack">
-        <ModeSwitcher mode={mode} setMode={setMode} />
-        <TagFilters tag={tag} setTag={setTag} />
-      </div>
+      {isMobileLayout ? (
+        <div className="filter-stack filter-stack--mobile">
+          <ModeSwitcher mode={mode} setMode={setMode} />
+          <details className="mobile-filter-panel">
+            <summary>Filter projects</summary>
+            <TagFilters tag={tag} setTag={setTag} />
+          </details>
+        </div>
+      ) : (
+        <div className="filter-stack">
+          <ModeSwitcher mode={mode} setMode={setMode} />
+          <TagFilters tag={tag} setTag={setTag} />
+        </div>
+      )}
 
       <div className="projects-workspace">
         <div className="project-list" aria-label="Project chooser">
@@ -600,7 +616,7 @@ function ProjectsSection({
           ))}
         </div>
         <div className="case-study-stage">
-          {!isMobileLayout ? (
+          {!isCompactLayout ? (
             <div className="case-study-stage__top">
               <span className="eyebrow">Focused view</span>
               <p>
@@ -841,6 +857,7 @@ function App() {
   const { mode, tag, project: selectedProjectSlug, setMode, setTag, setProject } =
     usePortfolioState();
   const isMobileLayout = useIsMobileLayout(900);
+  const isCompactTopLayout = useIsMobileLayout(1200);
   const [resumeTab, setResumeTab] = useState<ResumeTab>("experience");
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
   const [pendingScrollTarget, setPendingScrollTarget] = useState<string | null>(null);
@@ -925,12 +942,14 @@ function App() {
     };
 
   return (
-    <div className={`page-shell ${isMobileLayout ? "page-shell--mobile" : ""}`}>
+    <div
+      className={`page-shell ${isMobileLayout ? "page-shell--mobile" : ""} ${isCompactTopLayout ? "page-shell--compact" : ""}`}
+    >
       <Suspense fallback={null}>
         <ImmersiveBackground />
       </Suspense>
-      {!isMobileLayout ? <div className="ambient ambient-left" /> : null}
-      {!isMobileLayout ? <div className="ambient ambient-right" /> : null}
+      {!isCompactTopLayout ? <div className="ambient ambient-left" /> : null}
+      {!isCompactTopLayout ? <div className="ambient ambient-right" /> : null}
 
       {isMobileLayout ? (
         <MobileHeader
@@ -948,25 +967,30 @@ function App() {
             onResumeNavigate={jumpToSection("resume-deck")}
             onContactNavigate={jumpToSection("contact-strip", "contact")}
           />
-          <div className="quick-nav" aria-label="Quick navigation">
-            <a href="#projects" onClick={jumpToSection("projects")}>
-              Go to projects
-            </a>
-            <a href="#resume-deck" onClick={jumpToSection("resume-deck")}>
-              Go to resume
-            </a>
-            <a href="#contact-strip" onClick={jumpToSection("contact-strip", "contact")}>
-              Go to CV + contact
-            </a>
-            <button type="button" onClick={() => setProject("relay-flow")}>
-              Start with Relay-Flow
-            </button>
-          </div>
+          {!isCompactTopLayout ? (
+            <div className="quick-nav" aria-label="Quick navigation">
+              <a href="#projects" onClick={jumpToSection("projects")}>
+                Go to projects
+              </a>
+              <a href="#resume-deck" onClick={jumpToSection("resume-deck")}>
+                Go to resume
+              </a>
+              <a href="#contact-strip" onClick={jumpToSection("contact-strip", "contact")}>
+                Go to CV + contact
+              </a>
+              <button type="button" onClick={() => setProject("relay-flow")}>
+                Start with Relay-Flow
+              </button>
+            </div>
+          ) : null}
         </>
       )}
 
-      <main id="top" className={`main-shell ${isMobileLayout ? "main-shell--mobile" : ""}`}>
-        {!isMobileLayout ? (
+      <main
+        id="top"
+        className={`main-shell ${isMobileLayout ? "main-shell--mobile" : ""} ${isCompactTopLayout ? "main-shell--compact" : ""}`}
+      >
+        {!isCompactTopLayout ? (
           <HeroSection mode={mode} setMode={setMode} setProject={setProject} />
         ) : null}
         <ProjectsSection
@@ -978,6 +1002,7 @@ function App() {
           selectedProject={selectedProject}
           selectedProjectPosition={selectedProjectPosition}
           setProject={setProject}
+          isCompactLayout={isCompactTopLayout}
           isMobileLayout={isMobileLayout}
         />
         <InfoSection mode={mode} />
