@@ -1189,7 +1189,7 @@ a:focus-visible {
   }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 900px) {
   html {
     scroll-padding-top: 1.5rem;
   }
@@ -1223,6 +1223,16 @@ a:focus-visible {
     padding-bottom: 0;
   }
 
+  .site-nav::before {
+    content: "Navigate";
+    width: 100%;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-soft);
+  }
+
   .site-nav a {
     display: inline-flex;
     align-items: center;
@@ -1235,13 +1245,7 @@ a:focus-visible {
   }
 
   .nav-cta {
-    min-height: auto;
-    padding: 0.15rem 0;
-    border-radius: 0;
-    border: 0;
-    background: transparent;
-    box-shadow: none;
-    justify-content: flex-start;
+    display: none;
   }
 
   .quick-nav {
@@ -1250,7 +1254,7 @@ a:focus-visible {
 
   .hero {
     gap: 0.75rem;
-    padding-top: 0.3rem;
+    padding-top: 0;
   }
 
   .hero__copy,
@@ -1291,6 +1295,16 @@ a:focus-visible {
   .case-study,
   .resume-panel {
     gap: 0.75rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(1.8rem, 7vw, 2.6rem);
+    max-width: 100%;
+  }
+
+  .hero__subline,
+  .hero__summary {
+    max-width: 100%;
   }
 
   .hero__quickbar {
@@ -1424,7 +1438,7 @@ a:focus-visible {
   }
 }
 
-@media (max-width: 560px) {
+@media (max-width: 620px) {
   .site-header {
     gap: 0.3rem;
   }
