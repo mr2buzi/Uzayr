@@ -28,16 +28,16 @@ export const allProjectTags: Array<{ value: ProjectTag | "all"; label: string }>
 
 export const heroCopy: Record<"headline" | "subline" | "summary", ModeCopy> = {
   headline: {
-    plain: "I am a software engineering student (AI & Systems) seeking a placement where shipping real work matters.",
+    plain: "I am a computer science student building reliable software across backend systems, AI-assisted products, and embedded development.",
     balanced:
-      "I am a second-year computer science student building placement-ready work across systems, AI, backend platforms, and product execution.",
+      "I build across systems, AI, backend platforms, and product engineering, with an emphasis on reliability and clear technical tradeoffs.",
     technical:
       "I focus on AI-integrated systems, storage engines, reliability tooling, backend services, and performance-aware product builds.",
   },
   subline: {
-    plain: "I build projects that are easy for recruiters to scan and strong enough for engineers to interrogate.",
+    plain: "I build projects with clear architecture, reproducible setup, and documented technical tradeoffs.",
     balanced:
-      "My portfolio is built around interviewable systems: durable workflows, a Rust database engine, ML-backed fraud tooling, and product-oriented full stack work.",
+      "My work includes durable workflows, a Rust database engine, ML-backed fraud tooling, and product-oriented full-stack systems.",
     technical:
       "The strongest work here spans Rust services, WAL-backed persistence, typed frontend dashboards, explainable ML pipelines, and Python simulation tooling.",
   },
@@ -84,9 +84,9 @@ export const projects: Project[] = [
       },
       {
         plain:
-          "It also reflects the kind of work I want to be hired for: backend, platform, and systems-flavoured product engineering.",
+          "It focuses on backend reliability, platform concerns, and systems-oriented product engineering.",
         balanced:
-          "I kept it intentionally narrower than a full orchestration platform so the tradeoffs are easier to defend in interview discussion.",
+          "I kept it intentionally narrower than a full orchestration platform so its failure and recovery semantics remain understandable.",
         technical:
           "I deliberately chose sequential durable execution over a full DAG runtime, which kept branch replay and recovery semantics easier to reason about.",
       },
@@ -115,7 +115,7 @@ export const projects: Project[] = [
       {
         plain: "I made the project strong enough to demo in 3 to 5 minutes.",
         balanced:
-          "I added an interview-oriented README and demo workflows so the product is easy to present under time pressure.",
+          "I added reproducible documentation and seeded workflows covering normal execution, failure, recovery, and branching.",
         technical:
           "Structured the repo around demoable flows like `user-signup` and `scrape-and-brief` to expose normal-path and failure-path behavior clearly.",
       },
@@ -123,7 +123,7 @@ export const projects: Project[] = [
     evidencePoints: [
       "Published workflow versions are separated from editable drafts.",
       "Retries, replay, dead letters, and branching are all part of the visible product story.",
-      "The repo is strong for backend interviews because the failure model is explicit.",
+      "The explicit failure model makes the backend behaviour inspectable and testable.",
     ],
     artifacts: [
       {
@@ -135,13 +135,13 @@ export const projects: Project[] = [
       {
         kind: "cli-example",
         title: "Local stack demo",
-        summary: "Runs with Docker Compose and a seeded dashboard for interview demos.",
+        summary: "Runs with Docker Compose and a seeded dashboard for reproducible local demonstrations.",
         preview: "docker compose up --build",
       },
       {
         kind: "metrics-result",
-        title: "Interview value",
-        summary: "Strongest portfolio signal for backend and platform roles because the reliability model is explicit.",
+        title: "Operational evidence",
+        summary: "Demonstrates backend and platform reliability through explicit execution and recovery semantics.",
       },
     ],
     links: [{ label: "GitHub repository", href: "https://github.com/mr2buzi/Relay-Flow" }],
@@ -171,7 +171,7 @@ export const projects: Project[] = [
       },
       {
         plain:
-          "It also helps in interviews because I can show how data moves through the engine step by step.",
+          "The workbench exposes how data moves through the engine step by step.",
         balanced:
           "I paired the engine with a workbench to make a systems project more accessible while still keeping the real engine behavior front-and-centre.",
         technical:
@@ -193,14 +193,14 @@ export const projects: Project[] = [
     ],
     outcomeBullets: [
       {
-        plain: "I built a project that stands out from standard student portfolios because the core engine is original.",
+        plain: "I implemented the core engine directly rather than wrapping an existing database.",
         balanced:
           "I combined low-level engine work with a polished enough UI to make the system demoable without hiding the technical core.",
         technical:
           "I exposed planner, executor, pager, transaction, and recovery behavior through a desktop workbench backed by the real engine.",
       },
       {
-        plain: "I created a strong story for systems, backend, and infrastructure interviews.",
+        plain: "I created concrete evidence of systems, backend, and storage-engine work.",
         balanced:
           "I added tests around parser correctness, persistence, update semantics, planner choices, savepoints, rollback, and WAL recovery.",
         technical:
@@ -210,7 +210,7 @@ export const projects: Project[] = [
     evidencePoints: [
       "Real parser, planner, pager, and WAL concepts are implemented rather than mocked.",
       "Electron acts as an inspection surface for the actual engine output.",
-      "Strongest systems signal in the portfolio for infrastructure-leaning interviews.",
+      "A systems-focused example covering parsing, storage, indexing, planning, and recovery.",
     ],
     artifacts: [
       {
@@ -227,7 +227,7 @@ export const projects: Project[] = [
       },
       {
         kind: "metrics-result",
-        title: "Interview strength",
+        title: "Systems depth",
         summary: "Best project for showing systems depth, scope control, and technical tradeoff awareness.",
       },
     ],
@@ -288,7 +288,7 @@ export const projects: Project[] = [
           "I defined a versioned, inspectable scoring service with seeded demo data, analyst state transitions, backend tests, frontend tests, and CI paths.",
       },
       {
-        plain: "I made the project credible for interviews by focusing on workflows, not hype.",
+        plain: "I kept the project credible by focusing on operational workflows rather than unsupported claims.",
         balanced:
           "The platform is designed around triage, auditability, explainability, and operational metrics rather than only chasing model accuracy.",
         technical:
@@ -346,7 +346,7 @@ export const projects: Project[] = [
           "The current public evidence is the live deployment: landing page messaging, tiered pricing, signup flow, and a static lifecycle simulation that explains the product model clearly.",
       },
       {
-        plain: "I use it to balance the portfolio by showing a product-minded side alongside the heavier systems work.",
+        plain: "It shows product engineering alongside the heavier systems work.",
         balanced:
           "I treat it as a lighter case study here because the implementation repo is not publicly accessible yet.",
         technical:
@@ -363,21 +363,21 @@ export const projects: Project[] = [
     tradeoffs: [
       "Technical detail is intentionally limited because the repository is not publicly accessible.",
       "This case study leans product and UX heavier than the other flagship projects.",
-      "Portfolio messaging avoids pretending to show internals that are not public.",
+      "Public documentation avoids pretending to expose internals that are not available.",
       "It stays useful by focusing on shipped behaviour and product framing.",
     ],
     outcomeBullets: [
       {
         plain: "I used this project to show that I can put a real product in front of users, not just keep work inside GitHub.",
         balanced:
-          "I added public product evidence to a portfolio that would otherwise skew heavily toward technical demos.",
+          "I added public product evidence alongside the systems-focused projects.",
         technical:
           "I use it as live proof of product architecture at the UX level: acquisition pages, monetisation framing, onboarding, and model explanation through simulation.",
       },
       {
-        plain: "It helps recruiters see a broader range than just systems engineering.",
+        plain: "It demonstrates product delivery as well as systems engineering.",
         balanced:
-          "I think it makes the portfolio more hireable because it shows both platform depth and product instinct.",
+          "It combines platform depth with product design and delivery.",
         technical:
           "I use it as a deliberate counterweight to the Rust and ML case studies by showing public-facing product execution.",
       },
@@ -402,7 +402,7 @@ export const projects: Project[] = [
       },
       {
         kind: "metrics-result",
-        title: "Portfolio role",
+        title: "Product role",
         summary: "Best case study for shipped product framing and public proof of execution.",
       },
     ],
@@ -444,7 +444,7 @@ export const projects: Project[] = [
         plain:
           "It is also easy for me to demo because the same simulation works through a desktop app and command line.",
         balanced:
-          "That dual interface makes the core model reusable and interview-friendly.",
+          "That dual interface keeps the core model reusable for interactive and automated analysis.",
         technical:
           "I refactored the simulation kernel away from UI concerns and headless execution, which makes testing and scenario overrides far easier.",
       },
@@ -471,7 +471,7 @@ export const projects: Project[] = [
           "Separated validated parameter types, solver logic, report generation, and presentation layers to improve testability and discussion quality.",
       },
       {
-        plain: "I added another interview angle beyond web and backend work.",
+        plain: "I added an engineering simulation that extends beyond web and backend work.",
         balanced:
           "Shows that I can think in terms of modelling, constraints, and numerical robustness as well as product UX.",
         technical:
@@ -520,11 +520,11 @@ export const experience: ExperienceItem[] = [
           "I own product scoping, architecture, implementation, and deployment across client-style and self-initiated builds.",
       },
       {
-        plain: "I use the studio as a vehicle for building portfolio-grade systems and product work.",
+        plain: "I use the studio to build and deploy production-style systems and product work.",
         balanced:
           "I treat Lureon as a parallel lane for shipping, positioning, and presenting software work publicly.",
         technical:
-          "I keep the studio brand alongside my personal portfolio rather than using it to replace it, which signals both engineering output and product initiative.",
+          "I keep the studio brand alongside my personal work to separate client-facing delivery from technical project documentation.",
       },
     ],
   },
@@ -679,18 +679,16 @@ export const secondaryProjects: SecondaryProject[] = [
     title: "Leadership, Public Speaking, and Community Work",
     tag: "full-stack",
     summary: {
-      plain: "I have led tours, volunteered in public-facing roles, and completed leadership training through RAF Cadets and community organisations.",
+      plain: "I have led tours, volunteered in public-facing roles, and completed first-aid training through RAF Cadets.",
       balanced:
-        "My experience includes ACP and National Trust volunteering, guided tours, public speaking, first aid certification, event coordination, and leadership courses through RAF Cadets.",
+        "My experience includes ACP and National Trust volunteering, guided tours, public speaking, and first-aid training through RAF Cadets.",
       technical:
-        "This non-technical experience strengthens my interview performance and delivery confidence through public presentation, operational reliability, event coordination, and calm communication under structure.",
+        "This non-technical experience demonstrates public presentation, operational reliability, and calm communication under structure.",
     },
   },
 ];
 
 export const contactLinks = [
-  { label: "Email", value: "[redacted-email]", href: "mailto:[redacted-email]" },
-  { label: "Phone", value: "[redacted-phone]", href: "tel:[redacted-phone]" },
   {
     label: "LinkedIn",
     value: "linkedin.com/in/uzayr-qureshi-b2a8ba245",
@@ -707,11 +705,11 @@ export const infoPanels: InfoPanel[] = [
     title: "What I am looking for",
     body: {
       plain:
-        "I am looking for a placement where I can contribute to real software, learn fast, and keep building a portfolio that stands up in interviews.",
+        "I am looking for software engineering opportunities where I can contribute to real systems, learn quickly, and take ownership of useful work.",
       balanced:
-        "I am looking for a year-in-industry placement where I can contribute to technically demanding software while growing in backend, systems, AI, or product-oriented engineering.",
+        "I am looking for technically demanding software work across backend, systems, AI, or product-oriented engineering.",
       technical:
-        "The best fit is a placement with meaningful engineering ownership across backend systems, AI-integrated products, infrastructure, or performance-aware software.",
+        "The best fit provides meaningful engineering ownership across backend systems, AI-integrated products, infrastructure, or performance-aware software.",
     },
   },
   {
@@ -723,7 +721,7 @@ export const infoPanels: InfoPanel[] = [
       balanced:
         "Current university modules include database systems, computational mathematics, scientific computing, object orientation, algorithms and data structures, and data processing & visualisation.",
       technical:
-        "The strongest academic overlap with my portfolio is in database systems, algorithms, scientific computing, computational mathematics, and data processing.",
+        "The strongest academic overlap with my project work is in database systems, algorithms, scientific computing, computational mathematics, and data processing.",
     },
   },
   {
@@ -731,11 +729,11 @@ export const infoPanels: InfoPanel[] = [
     title: "Additional training",
     body: {
       plain:
-        "I have also completed cybersecurity training and leadership courses outside the classroom.",
+        "I have also completed cybersecurity training and first-aid training outside the classroom.",
       balanced:
-        "Additional training includes a six-month cybersecurity course funded by West Midlands Police, RAF Cadets leadership courses, first aid certification, and event coordination.",
+        "Additional training includes a six-month cybersecurity course funded by West Midlands Police and first-aid training through RAF Cadets.",
       technical:
-        "External training strengthens the portfolio on the security and operations side, while leadership and first-aid work add evidence of reliability under structure.",
+        "External training adds security and operations context, while RAF Cadets first-aid training demonstrates reliability under structure.",
     },
   },
   {
@@ -755,10 +753,8 @@ export const infoPanels: InfoPanel[] = [
 export const cvBlocks: CvBlock[] = [
   {
     eyebrow: "Contact",
-    title: "Direct details",
+    title: "Public links",
     items: [
-      "[redacted-phone]",
-      "[redacted-email]",
       "linkedin.com/in/uzayr-qureshi-b2a8ba245",
       "uzayr.netlify.app",
       "lureon.dev",
@@ -779,7 +775,7 @@ export const cvBlocks: CvBlock[] = [
     eyebrow: "Experience snapshot",
     title: "Most relevant roles",
     items: [
-      "At Lureon, I founded and run a studio focused on shipping portfolio-grade products.",
+      "At Lureon, I founded and run a studio focused on shipping production-style products.",
       "At IoT Tech Solutions, I worked on Python migration, LDRA testing, AES-128 research, AI benchmarking, and automation.",
       "At World of Women, I built full stack web features using PHP, SQL, SASS, HTML, CSS, and Bootstrap.",
       "At Student Cribs, I developed public-facing communication through tours, outreach, and feedback loops.",
@@ -787,7 +783,7 @@ export const cvBlocks: CvBlock[] = [
   },
   {
     eyebrow: "Project highlights",
-    title: "Best interview anchors",
+    title: "Technical anchors",
     items: [
       "Relay-Flow: I built workflow reliability around retries, replay, dead letters, and branching.",
       "SlateDB: I built a Rust storage engine with parsing, indexing, transactions, and WAL recovery.",
