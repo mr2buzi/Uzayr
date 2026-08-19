@@ -1,4 +1,4 @@
-# Uzayr Qureshi — Portfolio
+# Uzayr Qureshi: Portfolio
 
 [![CI](https://github.com/mr2buzi/Uzayr/actions/workflows/ci.yml/badge.svg)](https://github.com/mr2buzi/Uzayr/actions/workflows/ci.yml)
 
