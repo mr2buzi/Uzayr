@@ -41,7 +41,7 @@ World of Women | Full Stack Web Developer | Part-time | 2023
 - Built responsive interfaces using SASS, HTML5, CSS and Bootstrap
 - Supported secure sign-up flows and mobile-first usability
 
-Teaching Internship | Mathematics & Computer Science Instructor | 2026 | 3 weeks
+St Peter's RC School | Mathematics & Computer Science Teaching Intern | 2026 | 3 weeks
 - Personally taught more than 120 students aged 11 to 18, typically in classes of approximately 30
 - Delivered mathematics and computer science lessons, including Python programming
 
@@ -50,7 +50,7 @@ Cardiff University | BSc Computer Science (Year in Industry) | 2024 - Present
 Current academic average: First-class
 Relevant modules: Database Systems, Data Processing & Visualisation, Scientific Computing, Object Orientation, Algorithms and Data Structures, Computational Mathematics
 
-St Peters RC Sixth Form | 2024
+St Peter's RC Sixth Form | 2024
 A Levels: Criminology A*, Computer Science C, Psychology C
 
 Ninestiles, an Academy | 2022
