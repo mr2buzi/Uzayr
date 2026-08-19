@@ -538,7 +538,7 @@ export const experience: ExperienceItem[] = [
         balanced:
           "I migrated Python 2 code to Python 3, worked within Scrum and Kanban workflows, and automated manual file-management tasks.",
         technical:
-          "I worked across Python migration, LDRA-based testing and static analysis, AES-128 research, and automation that reduced internal manual overhead by roughly 60%.",
+          "I worked across Python migration, LDRA-based testing and static analysis, AES-128 research, and automation that reduced internal manual overhead by approximately 75%.",
       },
       {
         plain: "I also explored AI tracking models and compared how they performed.",
@@ -550,8 +550,8 @@ export const experience: ExperienceItem[] = [
   },
   {
     company: "Student Cribs",
-    role: "Student Brands Manager | Part-time",
-    date: "2024 - Present",
+    role: "Student Brand Manager | Part-time",
+    date: "2024 - 2025",
     bullets: [
       {
         plain: "I represent the brand directly to students through tours, outreach, and feedback gathering.",
@@ -573,6 +573,21 @@ export const experience: ExperienceItem[] = [
           "I developed front-end pages and secure sign-up flows using SASS, HTML5, CSS, XAMPP, SQL, PHP, and Bootstrap.",
         technical:
           "I implemented responsive UI and authentication logic in a classic PHP + SQL stack, using RAD-style iteration for faster feedback cycles.",
+      },
+    ],
+  },
+  {
+    company: "St Peter's RC School",
+    role: "Mathematics & Computer Science Teaching Intern",
+    date: "2026 | 3 weeks",
+    bullets: [
+      {
+        plain:
+          "I personally taught mathematics and computer science to more than 120 students aged 11 to 18.",
+        balanced:
+          "I delivered mathematics and computer science lessons, including Python programming, to more than 120 students across classes of approximately 30.",
+        technical:
+          "I planned and delivered structured mathematics and computer science lessons for students aged 11 to 18, adapting explanations and Python exercises across different ability levels.",
       },
     ],
   },
@@ -619,7 +634,7 @@ export const education: EducationItem[] = [
       "BSc Computer Science (Year in Industry). Modules include database systems, data processing & visualisation, scientific computing, algorithms, data structures, object orientation, and computational mathematics. Current grade: First.",
   },
   {
-    institution: "St Peters RC Sixth Form",
+    institution: "St Peter's RC Sixth Form",
     date: "2024",
     detail: "A Levels: Criminology A*, Computer Science C, Psychology C.",
   },
@@ -779,6 +794,7 @@ export const cvBlocks: CvBlock[] = [
       "At IoT Tech Solutions, I worked on Python migration, LDRA testing, AES-128 research, AI benchmarking, and automation.",
       "At World of Women, I built full stack web features using PHP, SQL, SASS, HTML, CSS, and Bootstrap.",
       "At Student Cribs, I developed public-facing communication through tours, outreach, and feedback loops.",
+      "At St Peter's RC School, I taught mathematics and computer science to more than 120 students aged 11 to 18 over three weeks.",
     ],
   },
   {
@@ -806,7 +822,7 @@ export const cvBlocks: CvBlock[] = [
     title: "Additional signal",
     items: [
       "Cybersecurity course funded by West Midlands Police.",
-      "RAF Cadets leadership courses, first aid training, event coordination.",
+      "First-aid training through RAF Cadets.",
       "Community tours, public speaking, and volunteering with ACP and the National Trust.",
       "References available upon request.",
     ],
