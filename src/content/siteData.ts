@@ -320,7 +320,7 @@ export const projects: Project[] = [
         preview: ".\\scripts\\start-local.ps1",
       },
     ],
-    links: [{ label: "GitHub repository", href: "https://github.com/mr2buzi/Fraud-Detector-" }],
+    links: [{ label: "GitHub repository", href: "https://github.com/mr2buzi/fraudshield" }],
   },
   {
     slug: "deadline",

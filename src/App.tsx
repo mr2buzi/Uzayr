@@ -470,7 +470,6 @@ function HeroSection({
 
         <div className="hero__actions">
           <a href="#projects">Open projects</a>
-          <a href="mailto:[redacted-email]">Email me</a>
           <a
             href="https://www.linkedin.com/in/uzayr-qureshi-b2a8ba245/"
             target="_blank"
